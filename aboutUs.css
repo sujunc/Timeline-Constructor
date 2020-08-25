@@ -1,0 +1,77 @@
+body {
+    background-color: ivory;
+    margin: 0;
+}
+
+.pagecontent {
+    padding-top: 60px;
+}
+
+.headbar {
+    background-color: green;
+    padding: 1px 0px;
+    -webkit-box-shadow: 0 10px 15px -10px rgb(10, 10, 10);
+    -moz-box-shadow: 0 10px 15px -10px rgb(10, 10, 10);
+    box-shadow: 0 10px 15px -10px rgb(10, 10, 10);
+}
+
+#navdiv {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-decoration: none;
+    width: 100%;
+    background-color: gray;
+    padding: 10px 12px;
+    border-style: none none outset none;
+    position: fixed;
+}
+
+#navdiv>a {
+    text-decoration: none;
+    color: ivory;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    text-shadow: -1px 0 dimgray, 0 1px dimgray, 1px 0 dimgray, 0 -1px dimgray;
+    font-weight: bold;
+    font-size: 2vw;
+    text-align: left;
+    line-height: 30px;
+    margin: 5px 50px 5px 0px;
+}
+
+h1 {
+    color: ivory;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    text-shadow: -1px 0 darkgreen, 0 1px darkgreen, 1px 0 darkgreen, 0 -1px darkgreen;
+    font-size: 300%;
+    padding: 0px 12px;
+}
+
+.body {
+    padding-left: 16px;
+}
+
+h2 {
+    color: dimgray;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 200%;
+}
+
+h3 {
+    color: dimgray;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 200%;
+}
+
+p {
+    color: dimgray;
+    font-family: inherit;
+    font-size: 160%;
+}
+
+ul {
+    color: dimgray;
+    font-family: inherit;
+    font-size: 160%
+}

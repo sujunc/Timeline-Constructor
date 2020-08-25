@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Start Creating</title>
+    <link rel="stylesheet" href="creating.css">
+</head>
+
+<body>
+    <div id="navdiv">
+        <a href="index.html">Home</a>
+        <a href="creating.html">Start Creating</a>
+        <a href="/js/">Getting Started</a>
+        <a href="aboutUs.html">About Me</a>
+    </div>
+    <div class="pagecontent">
+        <div class="headbar">
+            <h1 id="name" contenteditable=true oninput=updateTitle()>Untitled Timeline</h1>
+        </div>
+
+        <div class="events" id="events">
+            <div>
+                <button type=button class="closebtn" onclick="closeNav()">&times;</button>
+                <h2>Systems, Events and Characters</h2>
+                <button type="button" class="button buttonadd" onclick="openSys()">+ Add System</button>
+                <button type="button" class="button buttonadd" onclick="openEvent()">+ Add Event</button>
+                <button type="button" class="button buttonadd" onclick="openChara()">+ Add Character</button>
+            </div>
+            <div>
+                <div class="list" id="systemlist">
+                    <h2>Systems</h2>
+                </div>
+                <p id="sys">No calendar systems so far. Press "Add System" to create your first system!</p>
+                <div class="list" id="eventlist">
+                    <h2>Events</h2>
+                </div>
+                <p id="evts">No events so far. Press "Add Event" to create your first event!</p>
+                <div class="list" id="charlist">
+                    <h2>Characters</h2>
+                </div>
+                <p id="chara">No characters so far. Press "Add Character" to create your first character!</p>
+
+            </div>
+        </div>
+        <div class="timeline" id="timeline">
+            <button type=button class="openbtn" onclick="toggleNav() ">&#9776</button>
+            <h2>Your Timeline so far</h2>
+        </div>
+    </div>
+    <div class="overlay" id="system">
+        <button type=button class="openbtn" onclick="toggleNav() ">&#171;</button>
+        <button type="button" class="closebtn" onclick="closeSys()">&times;</button>
+        <form id="sysform">
+            <input type="text" id="sysname" name="sysname" placeholder="Calendar Name"><br>
+            <h2>Units</h2>
+            <input type="text" id="year" name="year" value="Year" onkeyup="updatePlaceholders()" placeholder="Unit for Year (or Equivalent)"><br>
+            <input type="text" id="month" name="month" value="Month" onkeyup="updatePlaceholders()" placeholder="Unit for Month (or Equivalent)"><br>
+            <input type="text" id="week" name="week" value="Week" onkeyup="updatePlaceholders()" placeholder="Unit for Week (or Equivalent"><br>
+            <input type="text" id="day" name="day" value="Day" onkeyup="updatePlaceholders()" placeholder="Unit for Day (or Equivalent)"><br>
+            <h2>Ratios</h2>
+            <input type="number" id="mpy" name="mpy" placeholder="Months per Year"><br>
+            <input type="number" id="wpm" name="wpm" placeholder="Weeks per Month"><br>
+            <input type="number" id="dpw" name="dpw" placeholder="Days per Week"><br>
+            <input type="number" id="dpm" name="dpm" placeholder="Days per Month"><br>
+            <h2>Conversions</h2>
+            <div id="systemshub" class="systemshub">
+            </div>
+            <p id="systemselect"></p>
+            <table class="conversion">
+                <tr>
+                    <th>System A (Current)</th>
+                    <th>Ratio</th>
+                    <th>System B (Selected)</th>
+                </tr>
+                <tr>
+                    <td><input type="number" id="Ayear" name="Ayear" placeholder="Year"></td>
+                    <td>to</td>
+                    <td><input type="number" id="Byear" name="Byear" placeholder="Year"></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="Amonth" name="Amonth" placeholder="Month"></td>
+                    <td>to</td>
+                    <td><input type="number" id="Bmonth" name="Bmonth" placeholder="Month"></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="Aweek" name="Aweek" placeholder="Week"><br></td>
+                    <td>to</td>
+                    <td><input type="number" id="Bweek" name="Bweek" placeholder="Week"><br></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="Aday" name="Aday" placeholder="Day"></td>
+                    <td>to</td>
+                    <td><input type="number" id="Bday" name="Bday" placeholder="Day"></td>
+                </tr>
+                <tr id="dateEquiv">
+                    <td></td>
+                    <th>System A</th>
+                    <th>System B</th>
+                </tr>
+                <tr id="dateEquiv1">
+                    <th>Equivalence 1</th>
+                    <td><input type="number" id="Ayy" name="Ayy" placeholder="Year">
+                        <input type="number" id="Amm" name="Amm" placeholder="Month">
+                        <input type="number" id="Add" name="Add" placeholder="Day">
+                    </td>
+                    <td><input type="number" id="Byy" name="Byy" placeholder="Year">
+                        <input type="number" id="Bmm" name="Bmm" placeholder="Month">
+                        <input type="number" id="Bdd" name="Bdd" placeholder="Day">
+                    </td>
+                </tr>
+                <tr> </tr>
+                <tr id="dateEquiv2">
+                    <th>Equivalence 2</th>
+                    <td><input type="number" id="Ayy" name="Ayy" placeholder="Year">
+                        <input type="number" id="Amm" name="Amm" placeholder="Month">
+                        <input type="number" id="Add" name="Add" placeholder="Day">
+                    </td>
+                    <td><input type="number" id="Byy" name="Byy" placeholder="Year">
+                        <input type="number" id="Bmm" name="Bmm" placeholder="Month">
+                        <input type="number" id="Bdd" name="Bdd" placeholder="Day">
+                    </td>
+                </tr>
+            </table>
+            <h3 id="syswarning"></h3>
+            <button type="button" class="savebutton" onclick="updateSystem()">Save</button>
+            <button type="reset" class="cancelbutton" onclick="closeSys()">Cancel</button>
+        </form>
+    </div>
+    <div class="overlay" id="event">
+        <button type=button class="openbtn" onclick="toggleNav() ">&#171;</button>
+        <button type="button" class="closebtn" onclick="closeEvent()">&times;</button>
+        <form id="eventform">
+            <input type="text" id="eventname" name="eventname" placeholder="Event"><br>
+            <h2>Event Description</h2>
+            <textarea rows="6" id="eventdesc" name="eventdesc"></textarea>
+            <h2>Date</h2>
+            <h3>System</h3>
+            <div class="systemshub" id="eventsystemshub">
+            </div>
+            <h3>Event Start</h3>
+            <input type="number" id="seventyr" placeholder="Year"><br>
+            <input type="number" id="seventmonth" placeholder="Month"><br>
+            <input type="number" id="seventday" placeholder="Day"><br>
+            <h3>Event End</h3>
+            <input type="number" id="eeventyr" placeholder="Year"><br>
+            <input type="number" id="eeventmonth" placeholder="Month"><br>
+            <input type="number" id="eeventday" placeholder="Day"><br>
+            <h3 id="eventwarning"></h3>
+            <button type="button" class="savebutton" onclick="updateEvent()">Save</button>
+            <button type="reset" class="cancelbutton" onclick="closeEvent()">Cancel</button>
+        </form>
+    </div>
+    <div class="overlay" id="char">
+        <button type=button class="openbtn" onclick="toggleNav() ">&#171;</button>
+        <button type="button" class="closebtn" onclick="closeChara()">&times;</button>
+        <form id="charform">
+            <input type="text" id="charname" name="charname" placeholder="Character Name"><br>
+            <h2>System</h2>
+            <div id="charsystemshub" class="systemshub"></div>
+            <h2>Date of Birth</h2>
+            <input type="number" id="charbyr" placeholder="Year"><br>
+            <input type="number" id="charbmonth" placeholder="Month"><br>
+            <input type="number" id="charbday" placeholder="Day"><br>
+            <h2>Date of Death</h2>
+            <input type="number" id="chardyr" placeholder="Year"><br>
+            <input type="number" id="chardmonth" placeholder="Month"><br>
+            <input type="number" id="chardday" placeholder="Day"><br>
+            <h3 id="charwarning"></h3>
+            <button type="button" class="savebutton" onclick="updateChar()">Save</button>
+            <button type="reset" class="cancelbutton" onclick="closeChara()">Cancel</button>
+        </form>
+    </div>
+
+</body>
+<script src="creating.js "></script>
+
+</html>

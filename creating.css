@@ -1,0 +1,446 @@
+body {
+    background-color: ivory;
+    margin: 0;
+}
+
+.pagecontent {
+    padding-top: 60px;
+}
+
+.headbar {
+    background-color: green;
+    padding: 1px 0px;
+    -webkit-box-shadow: 0 10px 15px -10px rgb(10, 10, 10);
+    -moz-box-shadow: 0 10px 15px -10px rgb(10, 10, 10);
+    box-shadow: 0 10px 15px -10px rgb(10, 10, 10);
+    z-index: 2;
+    position: relative;
+}
+
+#navdiv {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-decoration: none;
+    width: 100%;
+    background-color: gray;
+    padding: 10px 12px;
+    border-style: none none outset none;
+    position: fixed;
+}
+
+#navdiv>a {
+    text-decoration: none;
+    color: ivory;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    text-shadow: -1px 0 dimgray, 0 1px dimgray, 1px 0 dimgray, 0 -1px dimgray;
+    font-weight: bold;
+    font-size: 2vw;
+    text-align: left;
+    line-height: 30px;
+    margin: 5px 50px 5px 0px;
+}
+
+h1 {
+    color: ivory;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    text-shadow: -1px 0 darkgreen, 0 1px darkgreen, 1px 0 darkgreen, 0 -1px darkgreen;
+    font-size: 300%;
+    padding: 0px 12px;
+}
+
+[contenteditable] {
+    outline: 0px solid transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: break-all;
+}
+
+.events {
+    z-index: 1;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: 0.5s;
+    position: fixed;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background-color: snow;
+    width: 0px;
+    height: calc(100% - 225px);
+    -webkit-box-shadow: 0px 10px 15px -10px rgb(10, 10, 10);
+    -moz-box-shadow: 0px 10px 15px -10px rgb(10, 10, 10);
+    box-shadow: 0px 10px 15px -10px rgb(10, 10, 10);
+}
+
+.buttonadd {
+    display: block;
+    background-color: rgb(0, 160, 0);
+    color: ivory;
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+    font-size: 125%;
+    padding: 15px 0px;
+    width: 90%;
+    text-decoration: none;
+    border: none;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.buttonadd:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: green;
+}
+
+.events .closebtn {
+    position: absolute;
+    background-color: snow;
+    border: none;
+    top: 20px;
+    right: 15px;
+    font-size: 24px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: green;
+    color: ivory;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: darkgreen;
+    transition: 0.5s;
+}
+
+.timeline {
+    transition: margin-left .5s;
+    padding-top: 16px;
+    padding-left: 16px;
+}
+
+.overlay {
+    left: 0;
+    top: 0;
+    margin-left: 25%;
+    margin-top: 100%;
+    width: 75%;
+    height: calc(100% - 190px);
+    background-color: dimgray;
+    /* Black fallback color */
+    background-color: rgba(105, 105, 105, 0.95);
+    /* Black w/opacity */
+    position: fixed;
+    z-index: 1;
+    overflow-x: auto;
+    /* Disable horizontal scroll */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+.overlay .closebtn {
+    position: absolute;
+    background-color: dimgray;
+    color: ivory;
+    border: none;
+    top: 20px;
+    right: 15px;
+    font-size: 24px;
+    margin-left: 50px;
+}
+
+.overlay .openbtn {
+    position: absolute;
+    background-color: dimgray;
+    color: ivory;
+    border: none;
+    top: 50%;
+    position: sticky;
+    font-size: 24px;
+}
+
+.overlay .openbtn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: ivory;
+    color: dimgray;
+    transition: 0.5s
+}
+
+.overlay h2 {
+    color: ivory;
+    background-color: transparent;
+    font-size: 250%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+.overlay h3 {
+    color: ivory;
+    background-color: transparent;
+    font-size: 200%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 150px;
+}
+
+.overlay input {
+    color: ivory;
+    background-color: transparent;
+    padding-left: 20px;
+    margin-left: 150px;
+    margin-right: 5%;
+    width: 75%;
+    margin-bottom: 20px;
+    font-size: 200%;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 240, 0.2);
+}
+
+textarea {
+    background-color: gray;
+    color: ivory;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 200%;
+    white-space: normal;
+    width: 75%;
+    margin-top: 10px;
+    margin-left: 150px;
+    margin-right: 130px;
+}
+
+#sysname {
+    font-size: 300%;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin: 50px 50px 0px 50px;
+    width: 85%;
+}
+
+#eventname {
+    font-size: 300%;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin: 50px 50px 0px 50px;
+    width: 85%;
+}
+
+#charname {
+    font-size: 300%;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin: 50px 50px 0px 50px;
+    width: 85%;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: ivory;
+    opacity: 0.6;
+    /* Firefox */
+}
+
+ :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: ivory;
+}
+
+ ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: ivory;
+}
+
+.systemshub {
+    display: flex;
+    background-color: gray;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    margin-left: 150px;
+    margin-right: 10%;
+    margin-bottom: 50px;
+    width: 75%;
+    height: 250px;
+    overflow: auto;
+}
+
+.systemshub>button {
+    background-color: dimgray;
+    color: ivory;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 200%;
+    width: 25%;
+    height: 25%;
+    margin: 1%;
+    border-width: 1px;
+    border-color: silver;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 5px;
+}
+
+#systemselect {
+    color: ivory;
+    margin-left: 150px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin-top: 0px;
+}
+
+.conversion {
+    margin-left: 150px;
+    color: ivory;
+    background-color: transparent;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin-bottom: 50px;
+    margin-right: 10%;
+    text-align: center;
+}
+
+.conversion th {
+    width: 30%;
+    font-size: 220%;
+    margin-bottom: 10px;
+}
+
+.conversion td {
+    font-size: 200%;
+}
+
+.conversion input {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 0%;
+    width: 40%;
+    margin-bottom: 10px;
+    font-size: 100%;
+}
+
+#dateEquiv {
+    vertical-align: bottom;
+    height: 100px;
+}
+
+#dateEquiv1 {
+    height: 200px;
+    border: 10px solid black;
+}
+
+#dateEquiv1 input {
+    text-align: center;
+    vertical-align: bottom;
+    margin-top: 0px;
+    margin-left: 0%;
+    width: 40%;
+    margin-bottom: 0px;
+    font-size: 100%;
+}
+
+#dateEquiv2 input {
+    text-align: center;
+    vertical-align: bottom;
+    margin-top: 0px;
+    margin-left: 0%;
+    width: 40%;
+    margin-bottom: 0px;
+    font-size: 100%;
+}
+
+form>button {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 200%;
+    width: 210px;
+    height: 72px;
+    margin: 75px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: none;
+}
+
+form .savebutton {
+    margin-left: 150px;
+    background-color: dimgray;
+    color: ivory;
+}
+
+form .cancelbutton {
+    background-color: snow;
+    color: black;
+}
+
+form>button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: gray;
+    transition: 0.5s
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0px;
+}
+
+.list>button {
+    width: 90%;
+    padding: 15px 0px;
+    background-color: snow;
+    margin: auto;
+    margin-top: 5%;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 150%;
+    border: none;
+    border-bottom: 1px solid green;
+}
+
+.list>button:hover {
+    background-color: gray;
+    color: snow;
+    transition: 0.5s;
+}
+
+.list>p {
+    color: gray;
+    font-size: 125%;
+    margin-top: 0%;
+}
+
+h2 {
+    color: dimgray;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 200%;
+    padding-top: 0px;
+    padding-left: 16px;
+    margin-bottom: 0;
+}
+
+h3 {
+    color: ivory;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 300%;
+}
+
+p {
+    color: dimgray;
+    font-family: inherit;
+    font-size: 160%;
+    padding-left: 0px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 0px;
+}
+
+ul {
+    color: dimgray;
+    font-family: inherit;
+    font-size: 160%
+}
